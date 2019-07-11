@@ -24,7 +24,9 @@
           user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+//const followersArray = []
+
+
 
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
@@ -45,6 +47,23 @@ const followersArray = [];
 </div>
 
 */
+
+function cardComponent(cardObj) {
+   
+  // Created elements
+   const card = document.createElement('div'),
+   image = document.createElement('img'),
+   cardInfo = document.createElement('div'),
+   name = document.createElement('h3'),
+   userName = document.createElement('p'),
+   location = document.createElement('p'),
+   profile = document.createElement('p'),
+   addressLink = document.createElement('a'),
+   followers = document.createElement('p'),
+   following = document.createElement('p'),
+   bio = document.createElement('p'),
+};
+
 
 /* List of LS Instructors Github username's: 
   tetondan
