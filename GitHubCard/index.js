@@ -51,17 +51,30 @@
 function cardComponent(cardObj) {
    
   // Created elements
-   const card = document.createElement('div'),
-   image = document.createElement('img'),
-   cardInfo = document.createElement('div'),
-   name = document.createElement('h3'),
-   userName = document.createElement('p'),
-   location = document.createElement('p'),
-   profile = document.createElement('p'),
-   addressLink = document.createElement('a'),
-   followers = document.createElement('p'),
-   following = document.createElement('p'),
-   bio = document.createElement('p'),
+   const card = document.createElement('div');
+   const image = document.createElement('img');
+   const cardInfo = document.createElement('div');
+   const name = document.createElement('h3');
+   const userName = document.createElement('p');
+   const location = document.createElement('p');
+   const profile = document.createElement('p');
+   const addressLink = document.createElement('a');
+   const followers = document.createElement('p');
+   const following = document.createElement('p');
+   const bio = document.createElement('p');
+
+   // Structure of elements
+   card.appendChild(image)
+   card.appendChild(cardInfo)
+   card.appendChild(name)
+   card.appendChild(userName)
+   card.appendChild(location)
+   card.appendChild(profile)
+   card.appendChild(addressLink)
+   card.appendChild(followers)
+   card.appendChild(following)
+   card.appendChild(bio)
+   
 };
 
 
