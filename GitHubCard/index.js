@@ -12,8 +12,10 @@
 
 /* Step 4: Pass the data received from Github into your function, 
            create a new component and add it to the DOM as a child of .cards
-*/
 
+
+*/
+      
 /* Step 5: Now that you have your own card getting added to the DOM, either 
           follow this link in your browser https://api.github.com/users/<Your github name>/followers 
           , manually find some other users' github handles, or use the list found 
@@ -24,9 +26,31 @@
           user, and adding that card to the DOM.
 */
 
-//const followersArray = []
 
 
+const cards = document.querySelector(".cards")
+
+const followersArray = [
+  axios.get(`https://api.github.com/users/strafe`),
+  axios.get(`https://api.github.com/users/patpalmerston`),
+  axios.get(`https://api.github.com/users/HannahMarieWieser`),
+  axios.get(`https://api.github.com/users/SierraOG`)
+]
+      
+       
+      followersArray.forEach(person => {
+          person
+          .then(data => {
+            console.log('response', data);
+            const images = data.data
+            const info = cardComponent(images)
+            cards.appendChild(info)
+            
+        })
+        console.log(person);
+      })
+
+      
 
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
@@ -48,7 +72,9 @@
 
 */
 
-function cardComponent(cardObj) {
+
+
+function cardComponent(props) {
    
   // Created elements
    const card = document.createElement('div');
@@ -66,14 +92,36 @@ function cardComponent(cardObj) {
    // Structure of elements
    card.appendChild(image)
    card.appendChild(cardInfo)
-   card.appendChild(name)
-   card.appendChild(userName)
-   card.appendChild(location)
-   card.appendChild(profile)
-   card.appendChild(addressLink)
-   card.appendChild(followers)
-   card.appendChild(following)
-   card.appendChild(bio)
+   cardInfo.appendChild(name)
+   cardInfo.appendChild(userName)
+   cardInfo.appendChild(location)
+   cardInfo.appendChild(profile)
+   profile.appendChild(addressLink)
+   cardInfo.appendChild(followers)
+   cardInfo.appendChild(following)
+   cardInfo.appendChild(bio)
+
+   // Added classes
+   card.classList.add('card')
+   cardInfo.classList.add('card-info')
+   name.classList.add('name')
+   userName.classList.add('username')
+   
+   //Set the content
+   image.src = props.avatar_url
+   name.textContent = props.name
+   userName.textContent = props.login
+   location.textContent = `Location: ${props.location}`
+   profile.textContent = `Profile: ` 
+   profile.href = props.url
+   followers.textContent = `Followers: ${props.followers_url}`
+   following.textContent = `Following: ${props.following_url}`
+   bio.textContent = `Bio: ${props.bio}`
+
+
+
+    
+   return card
    
 };
 
