@@ -112,10 +112,9 @@ function cardComponent(props) {
    name.textContent = props.name
    userName.textContent = props.login
    location.textContent = `Location: ${props.location}`
-   profile.textContent = `Profile: ` 
-   profile.href = props.url
-   followers.textContent = `Followers: ${props.followers_url}`
-   following.textContent = `Following: ${props.following_url}`
+   profile.textContent = `Profile: ${props.html_url}` 
+   followers.textContent = `Followers: ${props.followers}`
+   following.textContent = `Following: ${props.following}`
    bio.textContent = `Bio: ${props.bio}`
 
 
